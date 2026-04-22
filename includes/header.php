@@ -30,6 +30,11 @@
                             <i class="fas fa-home me-1"></i>Beranda
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>/products.php">
+                            <i class="fas fa-box me-1"></i>Daftar Produk
+                        </a>
+                    </li>
                     <?php if (isAdmin()): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo BASE_URL; ?>/admin/dashboard.php">

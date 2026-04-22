@@ -27,6 +27,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/catalog/products.php">
+                <i class="fas fa-list me-2"></i>Daftar Produk (Publik)
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/catalog/">
                 <i class="fas fa-globe me-2"></i>Lihat Website
             </a>
