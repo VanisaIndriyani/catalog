@@ -23,7 +23,7 @@ $featuredProducts = $conn->query($sql);
 // Get categories
 $categories = $conn->query("SELECT * FROM categories ORDER BY name");
 
-$pageTitle = "Beranda";
+$pageTitle = "Diva Mitra Computer";
 include 'includes/header.php';
 ?>
 
