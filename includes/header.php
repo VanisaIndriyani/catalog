@@ -25,25 +25,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <?php $currentPage = basename($_SERVER['PHP_SELF']); ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/index.php">
+                        <a class="nav-link <?php echo ($currentPage == 'index.php' || $currentPage == '') ? 'active' : ''; ?>" href="<?php echo BASE_URL; ?>/index.php">
                             <i class="fas fa-home me-1"></i>Beranda
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/products.php">
+                        <a class="nav-link <?php echo ($currentPage == 'products.php') ? 'active' : ''; ?>" href="<?php echo BASE_URL; ?>/products.php">
                             <i class="fas fa-box me-1"></i>Daftar Produk
                         </a>
                     </li>
                     <?php if (isAdmin()): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/admin/dashboard.php">
+                        <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? 'active' : ''; ?>" href="<?php echo BASE_URL; ?>/admin/dashboard.php">
                             <i class="fas fa-user me-1"></i>Admin
                         </a>
                     </li>
                     <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/admin/login.php">
+                        <a class="nav-link <?php echo ($currentPage == 'login.php') ? 'active' : ''; ?>" href="<?php echo BASE_URL; ?>/admin/login.php">
                             <i class="fas fa-user me-1"></i>Admin
                         </a>
                     </li>
