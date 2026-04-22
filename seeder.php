@@ -46,27 +46,38 @@ while ($row = $result->fetch_assoc()) {
 $produk = [
     [
         'name' => 'Laptop Dell Intel® Core™ i7-10610U | RAM 8GB',
-        'description' => 'Laptop Dell ini hadir dengan prosesor Intel® Core™ i7-10610U yang tangguh, cocok untuk kebutuhan kerja, kuliah, hingga multitasking harian. Didukung RAM 8GB, performanya tetap lancar saat membuka banyak aplikasi sekaligus seperti Microsoft Office, browser, desain ringan, hingga editing dasar.',
+        'description' => 'Laptop Dell ini hadir dengan prosesor Intel® Core™ i7-10610U yang tangguh, cocok untuk kebutuhan kerja, kuliah, hingga multitasking harian.',
         'price' => 4500000,
+        'image' => 'uploads/products/1770403775_laptop.jpg',
         'category_id' => $catIds['Laptop']
     ],
     [
-        'name' => 'Printer Canon imageCLASS LBP122dw Wireless Black and White Laser Printer',
-        'description' => 'Canon imageCLASS LBP122dw adalah printer laser hitam-putih berkinerja tinggi yang ideal untuk kebutuhan cetak dokumen profesional di rumah, kantor kecil, atau usaha mikro. Printer ini menonjol dengan kecepatan cetak yang cepat, kualitas teks tajam dan konsisten, serta konektivitas nirkabel (Wi-Fi) yang memudahkan pencetakan langsung dari laptop atau smartphone tanpa kabel.',
+        'name' => 'Printer Canon imageCLASS LBP122dw Wireless',
+        'description' => 'Canon imageCLASS LBP122dw adalah printer laser hitam-putih berkinerja tinggi yang ideal untuk kebutuhan cetak dokumen profesional.',
         'price' => 3500000,
+        'image' => 'uploads/products/1770401636_printer_canon.jpg',
         'category_id' => $catIds['Printer']
     ],
     [
-        'name' => 'Lemari Pakaian 3 Pintu Modern',
-        'description' => 'Lemari pakaian modern dengan 3 pintu sliding. Dilengkapi rak, gantungan, dan laci. Bahan MDF dengan finishing high gloss. Ukuran 180x60x200 cm.',
-        'price' => 4500000,
-        'category_id' => $catIds['Lemari & Rak']
+        'name' => 'Laptop Acer Aspire 5 Slim',
+        'description' => 'Laptop Acer Aspire 5 Slim dengan desain tipis dan performa handal untuk multitasking.',
+        'price' => 5200000,
+        'image' => 'uploads/products/1770404799_laptop_acer.jpg',
+        'category_id' => $catIds['Laptop']
     ],
     [
-        'name' => 'Tempat Tidur King Size Minimalis',
-        'description' => 'Tempat tidur king size dengan desain minimalis modern. Frame terbuat dari kayu solid yang kuat dan tahan lama. Dilengkapi dengan headboard yang nyaman.',
-        'price' => 5500000,
-        'category_id' => $catIds['Tempat Tidur']
+        'name' => 'Laptop HP Pavilion 14',
+        'description' => 'Laptop HP Pavilion 14 menawarkan performa tinggi dengan desain yang elegan.',
+        'price' => 6500000,
+        'image' => 'uploads/products/1770405341_Laptop_HP.jpg',
+        'category_id' => $catIds['Laptop']
+    ],
+    [
+        'name' => 'Lemari Pakaian 3 Pintu Modern',
+        'description' => 'Lemari pakaian modern dengan 3 pintu sliding. Bahan MDF dengan finishing high gloss.',
+        'price' => 4500000,
+        'image' => null,
+        'category_id' => $catIds['Lemari & Rak']
     ]
 ];
 
@@ -77,12 +88,12 @@ if ($result->num_rows == 0) {
 }
 
 echo "\nMenambahkan produk...\n";
-$stockValues = [15, 20, 18, 12]; // Stock untuk setiap produk
+$stockValues = [15, 20, 10, 8, 18]; // Stock untuk setiap produk
 $i = 0;
 foreach ($produk as $item) {
     $stock = $stockValues[$i] ?? 10;
-    $stmt = $conn->prepare("INSERT INTO products (name, description, price, stock, category_id) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param('ssdii', $item['name'], $item['description'], $item['price'], $stock, $item['category_id']);
+    $stmt = $conn->prepare("INSERT INTO products (name, description, price, image, stock, category_id) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('ssdiii', $item['name'], $item['description'], $item['price'], $item['image'], $stock, $item['category_id']);
     $stmt->execute();
     echo "✓ {$item['name']} - Rp " . number_format($item['price'], 0, ',', '.') . " (Stok: $stock)\n";
     $i++;

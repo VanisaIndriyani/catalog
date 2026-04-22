@@ -16,7 +16,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows == 0) {
-    header('Location: /catalog/products.php');
+    header('Location: /catalog/index.php');
     exit();
 }
 
@@ -53,11 +53,11 @@ if (isset($_SESSION['cart_message'])) {
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/catalog/" class="text-decoration-none">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="/catalog/products.php" class="text-decoration-none">Produk</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>/" class="text-decoration-none">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>/index.php" class="text-decoration-none">Produk</a></li>
             <?php if ($product['category_id']): ?>
             <li class="breadcrumb-item">
-                <a href="/catalog/products.php?category=<?php echo $product['category_id']; ?>" class="text-decoration-none">
+                <a href="<?php echo BASE_URL; ?>/index.php?category=<?php echo $product['category_id']; ?>" class="text-decoration-none">
                     <?php echo htmlspecialchars($product['category_name']); ?>
                 </a>
             </li>
@@ -71,7 +71,7 @@ if (isset($_SESSION['cart_message'])) {
         <div class="col-lg-6 mb-4">
             <div class="product-image-container">
                 <?php if($product['image']): ?>
-                <img src="/catalog/<?php echo htmlspecialchars($product['image']); ?>" 
+                <img src="<?php echo BASE_URL; ?>/<?php echo htmlspecialchars($product['image']); ?>" 
                      class="product-detail-img" 
                      alt="<?php echo htmlspecialchars($product['name']); ?>"
                      id="mainProductImage">

@@ -42,7 +42,7 @@ include 'includes/header.php';
             </h5>
         </div>
         <div class="d-flex flex-wrap gap-2">
-            <a href="/catalog/" 
+            <a href="<?php echo BASE_URL; ?>/" 
                class="btn btn-pill <?php echo !isset($_GET['category']) ? 'btn-primary-custom' : 'btn-outline-primary-custom'; ?>">
                 Semua
             </a>
@@ -50,7 +50,7 @@ include 'includes/header.php';
             $categories->data_seek(0);
             while($category = $categories->fetch_assoc()): 
             ?>
-            <a href="/catalog/?category=<?php echo $category['id']; ?>" 
+            <a href="<?php echo BASE_URL; ?>/index.php?category=<?php echo $category['id']; ?>" 
                class="btn btn-pill <?php echo (isset($_GET['category']) && $_GET['category'] == $category['id']) ? 'btn-primary-custom' : 'btn-outline-primary-custom'; ?>">
                 <?php echo htmlspecialchars($category['name']); ?>
             </a>
@@ -66,7 +66,7 @@ include 'includes/header.php';
                 <div class="card product-card h-100">
                     <div class="product-image-wrapper">
                         <?php if($product['image']): ?>
-                        <img src="/catalog/<?php echo htmlspecialchars($product['image']); ?>" 
+                        <img src="<?php echo BASE_URL; ?>/<?php echo htmlspecialchars($product['image']); ?>" 
                              class="card-img-top product-image" 
                              alt="<?php echo htmlspecialchars($product['name']); ?>">
                         <?php else: ?>
@@ -85,7 +85,7 @@ include 'includes/header.php';
                         <div class="price mb-3">
                             Rp <?php echo number_format($product['price'], 0, ',', '.'); ?>
                         </div>
-                        <a href="/catalog/product-detail.php?id=<?php echo $product['id']; ?>" 
+                        <a href="<?php echo BASE_URL; ?>/product-detail.php?id=<?php echo $product['id']; ?>" 
                            class="btn btn-primary-custom w-100 mt-auto">
                             Lihat Detail
                         </a>
