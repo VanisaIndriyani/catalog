@@ -125,7 +125,7 @@ if (isset($_SESSION['cart_message'])) {
                         <i class="fab fa-whatsapp me-2"></i>Pesan via WhatsApp
                     </a>
                     </form>
-                    <a href="/catalog/products.php<?php echo $product['category_id'] ? '?category=' . $product['category_id'] : ''; ?>" 
+                    <a href="<?php echo BASE_URL; ?>/index.php<?php echo $product['category_id'] ? '?category=' . $product['category_id'] : ''; ?>" 
                        class="btn btn-outline-primary-custom w-100">
                         <i class="fas fa-arrow-left me-2"></i>Kembali ke Daftar Produk
                     </a>
@@ -150,7 +150,7 @@ if (isset($_SESSION['cart_message'])) {
                 <div class="card product-card h-100 shadow-sm">
                     <div class="product-image-wrapper">
                         <?php if($related['image']): ?>
-                        <img src="/catalog/<?php echo htmlspecialchars($related['image']); ?>" 
+                        <img src="<?php echo BASE_URL; ?>/<?php echo htmlspecialchars($related['image']); ?>" 
                              class="card-img-top" 
                              alt="<?php echo htmlspecialchars($related['name']); ?>">
                         <?php else: ?>
@@ -172,7 +172,7 @@ if (isset($_SESSION['cart_message'])) {
                             <div class="price mb-3">
                                 Rp <?php echo number_format($related['price'], 0, ',', '.'); ?>
                             </div>
-                            <a href="/catalog/product-detail.php?id=<?php echo $related['id']; ?>" 
+                            <a href="<?php echo BASE_URL; ?>/product-detail.php?id=<?php echo $related['id']; ?>" 
                                class="btn btn-primary-custom w-100">
                                 <i class="fas fa-eye me-1"></i>Lihat Detail
                             </a>
