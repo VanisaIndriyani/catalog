@@ -52,7 +52,7 @@ if ($categoryFilter > 0) {
     }
 }
 
-$pageTitle = "Furniture";
+$pageTitle = "Daftar Produk";
 include 'includes/header.php';
 
 // Show cart message if exists
