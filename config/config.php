@@ -4,6 +4,7 @@ session_start();
 // Site configuration
 define('SITE_NAME', 'DIVA MITRA COMPUTER');
 define('SITE_URL', 'http://localhost/catalog');
+define('BASE_URL', '/catalog');
 define('UPLOAD_DIR', 'uploads/products/');
 
 // Create upload directory if it doesn't exist

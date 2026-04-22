@@ -23,7 +23,8 @@ $categories = [
     ['name' => 'Printer'],
     ['name' => 'Aksesoris'],
     ['name' => 'Meja'],
-    ['name' => 'Tempat Tidur']
+    ['name' => 'Tempat Tidur'],
+    ['name' => 'Lemari & Rak']
 ];
 
 echo "Menambahkan kategori...\n";
