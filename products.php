@@ -52,7 +52,7 @@ if ($categoryFilter > 0) {
     }
 }
 
-$pageTitle = "Daftar Produk";
+$pageTitle = "Diva Mitra Computer";
 include 'includes/header.php';
 
 // Show cart message if exists
